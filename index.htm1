@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surprise</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:'Pretendard', sans-serif;
+    }
+
+    body{
+        height:100vh;
+        background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        overflow:hidden;
+    }
+
+    .container{
+        text-align:center;
+        color:white;
+    }
+
+    h1{
+        font-size:3rem;
+        margin-bottom:20px;
+        animation:fadeIn 2s ease;
+    }
+
+    p{
+        font-size:1.3rem;
+        margin-top:20px;
+        opacity:0;
+        transition:1s;
+    }
+
+    button{
+        padding:15px 30px;
+        border:none;
+        border-radius:30px;
+        background:white;
+        color:#ee9ca7;
+        font-size:1rem;
+        cursor:pointer;
+        transition:0.3s;
+    }
+
+    button:hover{
+        transform:scale(1.1);
+    }
+
+    .show{
+        opacity:1;
+    }
+
+    .heart{
+        position:absolute;
+        color:white;
+        font-size:20px;
+        animation:fall linear forwards;
+    }
+
+    @keyframes fall{
+        to{
+            transform:translateY(100vh);
+            opacity:0;
+        }
+    }
+
+    @keyframes fadeIn{
+        from{
+            opacity:0;
+            transform:translateY(20px);
+        }
+        to{
+            opacity:1;
+            transform:translateY(0);
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>✨ 눌러볼래? ✨</h1>
+
+    <button onclick="showMessage()">
+        클릭하기 💌
+    </button>
+
+    <p id="message">
+        여보 우리 벌써 100일이다!?!?<br><br>
+        나 좋아해줘서 너무 고마워 💜
+    </p>
+</div>
+
+<script>
+
+function showMessage(){
+    document.getElementById("message").classList.add("show");
+
+    for(let i=0; i<40; i++){
+        createHeart();
+    }
+}
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.classList.add("heart");
+    heart.innerHTML = "❤";
+
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.top = "-20px";
+
+    heart.style.fontSize =
+        Math.random()*20 + 10 + "px";
+
+    heart.style.animationDuration =
+        Math.random()*3 + 2 + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },5000);
+}
+
+</script>
+
+</body>
+</html>
