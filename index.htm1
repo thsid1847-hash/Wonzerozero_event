@@ -89,10 +89,10 @@
 <body>
 
 <div class="container">
-    <h1>✨ 눌러볼래? ✨</h1>
+    <h1>✨ 여보! 오늘 무슨 날이게~? ✨</h1>
 
     <button onclick="showMessage()">
-        클릭하기 💌
+        100일 💌
     </button>
 
     <p id="message">
